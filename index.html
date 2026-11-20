@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAEC Ecovenados Transformando el Futuro - CBTis 269 La casa de los venados</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <header class="encabezado">
+        <div class="contenedor-header">
+            <div class="logo-titulo">
+                <span class="subtitulo-inst">CBTis 269 La casa de los venados</span>
+                <h1>PAEC Ecovenados Transformando el Futuro</h1>
+            </div>
+            <nav class="menu">
+                <a href="index.html">INICIO</a>
+                <a href="problema_ambiental.html">PROBLEMA</a>
+                <a href="que_es_reciclaje.html">RECICLAJE</a>
+                <a href="tres_r.html">3R</a>
+                <a href="tipos_de_residuos.html">RESIDUOS</a>
+                <a href="reciclaje_escuela.html">ESCUELA</a>
+                <a href="reciclaje_comunidad.html">COMUNIDAD</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="seccion-principal">
+            <div class="columna-texto">
+                <h2>CUIDANDO NUESTRO ENTORNO ESCOLAR</h2>
+                <p>Bienvenido al portal sobre ecología del CBTis 269 PAEC Ecovenados Transformando el Futuro. Nuestro compromiso es fomentar la conciencia ecológica, el reciclaje y la reforestación dentro y fuera de nuestro plantel.</p>
+                <p>A través de acciones colectivas entre estudiantes, docentes y directivos, transformamos los espacios verdes y promovemos hábitos sustentables para toda la comunidad educativa.</p>
+                <p>Nuestro objetivo es promover la participación de la comunidad educativa en la reducción y manejo adecuado de los residuos sólidos, así como en la recuperación y ampliación de las áreas verdes del plantel, 
+                mediante acciones de concientización, limpieza, reciclaje y reforestación que contribuyan al cuidado del medio ambiente y al mejoramiento de los espacios escolares.<br>
+                "No tenemos que esperar a que otros cambien el mundo, cada botella separada y cada árbol cuidado hoy es el futuro que construimos".</p>
+                <a href="#proyecto" class="boton-accion">CONOCE MÁS</a>
+            </div>
+
+            <div class="columna-tarjetas">
+                <div class="tarjeta-info">
+                    <img src="img/foto15.jpg" alt="Limpieza y mantenimiento">
+                    <div class="tarjeta-contenido">
+                        <h3>MANTENIMIENTO</h3>
+                        <p>Jornadas de limpieza y conservación de áreas verdes del plantel.</p>
+                    </div>
+                </div>
+                <div class="tarjeta-info">
+                    <img src="img/reutiresiduos.jpg" alt="Reciclaje escolar">
+                    <div class="tarjeta-contenido">
+                        <h3>RECICLAJE</h3>
+                        <p>Separación de residuos y reutilización de materiales en el aula.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="proyecto" class="seccion-proyecto">
+            <h2>EJES DEL PROYECTO</h2>
+            <div class="grid-ejes">
+                <div class="caja-eje">
+                    <h3>REFORESTACIÓN</h3>
+                    <p>Plantación y cuidado de especies nativas adaptadas al clima de nuestra región para mejorar la calidad del aire y generar sombra.</p>
+                </div>
+                <div class="caja-eje">
+                    <h3>EDUCACIÓN AMBIENTAL</h3>
+                    <p>Campañas informativas dirigidas a los jóvenes bachilleres sobre el uso responsable del agua y la energía.</p>
+                </div>
+                <div class="caja-eje">
+                    <h3>GESTIÓN DE RESIDUOS</h3>
+                    <p>Instalación de puntos ecológicos estratégicos para la recolección de plástico, papel y aluminio dentro de la institución.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="galeria" class="seccion-galeria">
+            <h2>EVIDENCIAS Y ACTIVIDADES</h2>
+            <div class="grid-fotos">
+                <div class="marco-foto">
+                    <img src="img/foto1.jpg" alt="Actividad ambiental 1">
+                    <p>Problema de basura en el plantel</p>
+                </div>
+                <div class="marco-foto">
+                    <img src="img/foto12.jpg" alt="Actividad ambiental 2">
+                    <p>Limpieza grupal a áreas verdes de una secundaria</p>
+                </div>
+                <div class="marco-foto">
+                    <img src="img/foto6.jpg" alt="Actividad ambiental 3">
+                    <p>Participacion de la escuela en otras áreas de la secundaria</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="juego" class="seccion-juego">
+    <h2>RETO DIDÁCTICO: SEPARA CORRECTAMENTE</h2>
+    <p>Demuestra cuánto sabes sobre reciclaje eligiendo el contenedor correcto para cada residuo.</p>
+
+    <div class="contenedor-juego">
+        <p id="pregunta-juego" class="texto-residuo">Cargando residuo...</p>
+        
+        <div class="botones-contenedores">
+            <button type="button" onclick="verificarRespuesta('organico')" class="btn-juego">ORGANICO</button>
+            <button type="button" onclick="verificarRespuesta('reciclable')" class="btn-juego">INORGANICO RECICLABLE</button>
+            <button type="button" onclick="verificarRespuesta('especial')" class="btn-juego">MANEJO ESPECIAL</button>
+        </div>
+
+        <p id="mensaje-juego" class="feedback-juego"></p>
+        <p id="puntaje-juego" class="marcador-juego">Puntaje: 0 de 5</p>
+        <button type="button" id="btn-reiniciar" onclick="iniciarJuego()" class="boton-accion" style="display: none; margin-top: 15px;">JUGAR DE NUEVO</button>
+    </div>
+</section>
+
+<script>
+    const residuos = [
+        { nombre: "Cascara de platano y restos de fruta", tipo: "organico" },
+        { nombre: "Botella de plastico PET vacia y limpia", tipo: "reciclable" },
+        { nombre: "Pila alcalina usada de control remoto", tipo: "especial" },
+        { nombre: "Lata de aluminio aplastada", tipo: "reciclable" },
+        { nombre: "Hojas secas de arboles del plantel", tipo: "organico" }
+    ];
+
+    let indiceActual = 0;
+    let puntaje = 0;
+
+    function iniciarJuego() {
+        indiceActual = 0;
+        puntaje = 0;
+        document.getElementById("btn-reiniciar").style.display = "none";
+        document.getElementById("mensaje-juego").textContent = "";
+        actualizarPantalla();
+    }
+
+    function actualizarPantalla() {
+        document.getElementById("puntaje-juego").textContent = "Puntaje: " + puntaje + " de " + residuos.length;
+        if (indiceActual < residuos.length) {
+            document.getElementById("pregunta-juego").textContent = "Residuo " + (indiceActual + 1) + ": " + residuos[indiceActual].nombre;
+        } else {
+            document.getElementById("pregunta-juego").textContent = "Reto completado. Lograste " + puntaje + " aciertos de " + residuos.length + ".";
+            document.getElementById("btn-reiniciar").style.display = "inline-block";
+        }
+    }
+
+    function verificarRespuesta(eleccion) {
+        if (indiceActual >= residuos.length) return;
+
+        const mensaje = document.getElementById("mensaje-juego");
+        if (eleccion === residuos[indiceActual].tipo) {
+            puntaje++;
+            mensaje.textContent = "Correcto. Ese residuo va en ese contenedor.";
+            mensaje.style.color = "#2e7d32";
+        } else {
+            mensaje.textContent = "Incorrecto. Revisa bien el tipo de material.";
+            mensaje.style.color = "#c62828";
+        }
+
+        indiceActual++;
+        actualizarPantalla();
+    }
+
+    iniciarJuego();
+</script>
+
+    <section id="contacto" class="seccion-contacto">
+            <div class="contenedor-formulario">
+                <h2>MI COMPROMISO CON EL RECICLAJE</h2>
+                <p>Completa el cuestionario para registrar tus hábitos ecológicos y elegir tu compromiso ambiental.</p>
+                
+                <form action="procesar.php" method="POST" class="formulario">
+                    <div class="grupo-input">
+                        <label for="nombre">1. Nombre completo</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="edad">2. Edad</label>
+                        <input type="number" id="edad" name="edad" min="10" max="99" required>
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="grupo">3. Grupo</label>
+                        <input type="text" id="grupo" name="grupo" required>
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="residuo">4. Residuo que generas con mayor frecuencia</label>
+                        <input type="text" id="residuo" name="residuo" placeholder="Ejemplo: Botellas de plástico, papel, envolturas" required>
+                    </div>
+
+                    <div class="grupo-input">
+                        <label>5. Separas tus residuos actualmente</label>
+                        <div class="opciones-radio">
+                            <label><input type="radio" name="separa" value="Si" required> Sí</label>
+                            <label><input type="radio" name="separa" value="No"> No</label>
+                            <label><input type="radio" name="separa" value="A veces"> A veces</label>
+                        </div>
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="accion">6. Qué acción realizas para cuidar el ambiente</label>
+                        <input type="text" id="accion" name="accion" placeholder="Ejemplo: Uso termo reutilizable" required>
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="compromiso">7. Elige tu compromiso principal</label>
+                        <select id="compromiso" name="compromiso" required>
+                            <option value="">Selecciona una opción...</option>
+                            <option value="Separar basura en casa">Separar basura en casa</option>
+                            <option value="Reducir plasticos">Reducir plásticos</option>
+                            <option value="Reutilizar materiales">Reutilizar materiales</option>
+                            <option value="Reciclar en la escuela">Reciclar en la escuela</option>
+                            <option value="Cuidar areas verdes">Cuidar áreas verdes</option>
+                        </select>
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="comentario">8. Comentario o propuesta</label>
+                        <textarea id="comentario" name="comentario" rows="4" required></textarea>
+                    </div>
+
+                    <button type="submit" class="boton-enviar">ENVIAR COMPROMISO</button>
+                </form>
+            </div>
+        </section>
+        
+    <section id="referencias" class="seccion-referencias">
+            <h2>REFERENCIAS BIBLIOGRÁFICAS (APA)</h2>
+            <ul class="lista-apa">
+                <li>ASECA. (2019, 11 de febrero). <em>Residuos orgánicos</em>. ASECA Recolección de Residuos. <a href="https://aseca.com" target="_blank">https://aseca.com</a></li>
+                <li>Comisión Nacional de Áreas Naturales Protegidas. (2020, 25 de diciembre). <em>Las tres "erres" mágicas</em>. Gobierno de México. <a href="https://www.gob.mx" target="_blank">https://www.gob.mx</a></li>
+                <li>Greenpeace México. (2026). <em>Problemas ambientales: una crisis que nos involucra a todos</em>. Greenpeace. <a href="https://greenpeace.org" target="_blank">https://greenpeace.org</a></li>
+                <li>Organización de las Naciones Unidas. (2023). <em>Contaminación por plásticos: soluciones para un planeta limpio</em>. Programa de las Naciones Unidas para el Medio Ambiente. <a href="https://unep.org" target="_blank">https://unep.org</a></li>
+                <li>Padilla, A. (2022, 26 de julio). <em>¿Qué es el reciclaje?</em> UAG Media Hub, Universidad Autónoma de Guadalajara. <a href="https://uag.mx" target="_blank">https://uag.mx</a></li>
+                <li>Procycla. (s.f.). <em>Residuos inorgánicos: características y tratamiento</em>. Procycla. <a href="https://procycla.cl" target="_blank">https://procycla.cl</a></li>
+                <li>Secretaría de Medio Ambiente y Recursos Naturales. (2021). <em>Ley General para la Prevención y Gestión Integral de los Residuos</em>. Gobierno de México. <a href="https://www.gob.mx" target="_blank">https://www.gob.mx</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="pie-pagina">
+        <p>PAEC Ecovenados Transformando el Futuro - ELABORADO POR EVELYN Y DANA</p>
+    </footer>
+
+</body>
+</html>
